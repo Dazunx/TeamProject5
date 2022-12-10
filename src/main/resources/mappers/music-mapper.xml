@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Music">
+    <insert id="insertMusic">
+        insert into Music (title, artist, album, genre, chart) values (#{title},#{artist},#{album},#{genre},#{chart})
+    </insert>
+    <update id="updateMusic">
+        update Music
+        set title=#{title},artist=#{artist},album=#{album},genre=#{genre},chart=#{chart}
+        where sid=#{sid}
+    </update>
+    <delete id="deleteMusic">
+        delete from Music where sid=#{sid}
+    </delete>
+    <select id="getMusic" resultType="music">
+        select * from Music where sid=#{sid}
+    </select>
+    <select id="getMusicList" resultType="music">
+        select * from Music order by sid asc
+    </select>
+</mapper>
